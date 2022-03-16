@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginsignup/screens/identity.dart';
 import 'package:loginsignup/styles/app_colors.dart';
 import 'package:loginsignup/screens/signup.dart';
 import 'package:loginsignup/widgets/custom_button.dart';
@@ -48,7 +49,7 @@ class _SigninState extends State<Signin> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40))),
-              child: Column(
+              child: SingleChildScrollView(child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
@@ -104,12 +105,18 @@ class _SigninState extends State<Signin> {
                     ],
                   ),
                   AuthButton(
-                    onTap: () {},
-                    text: 'Sign In',
+                    onTap: () {
+ Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Identity()));
+
+                    },
+                    text: 'Connexion',
                   ),
                   CustomRichText(
                     discription: "Don't already Have an account? ",
-                    text: "Sign Up",
+                    text: "Inscription",
                     onTap: () {
                       Navigator.pushReplacement(
                           context,
@@ -118,7 +125,7 @@ class _SigninState extends State<Signin> {
                     },
                   ),
                 ],
-              ),
+              )),
             ),
           ),
         ],

@@ -6,14 +6,14 @@ import 'package:loginsignup/widgets/custom_formfield.dart';
 import 'package:loginsignup/widgets/custom_header.dart';
 import 'package:loginsignup/widgets/custom_richtext.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class Autres extends StatefulWidget {
+  const Autres({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Autres> createState() => _AutresState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _AutresState extends State<Autres> {
   final _userName = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -34,10 +34,9 @@ class _SignUpState extends State<SignUp> {
             color: AppColors.blue,
           ),
           CustomHeader(
-              text: 'Sign Up.',
+              text: 'Autres.',
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const Signin()));
+                Navigator.of(context).pop();
               }),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.08,
@@ -63,52 +62,51 @@ class _SignUpState extends State<SignUp> {
                     height: 16,
                   ),
                   CustomFormField(
-                    headingText: "UserName",
-                    hintText: "username",
+                    headingText: "Démarche artistique",
+                    hintText: "Démarche artistique",
                     obsecureText: false,
                     suffixIcon: const SizedBox(),
-                    maxLines: 1,
-                    textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.text,
-                    controller: _userName,
+                    maxLines: 5,
+                    textInputAction: TextInputAction.none,
+                    textInputType: TextInputType.multiline,
+                    controller: TextEditingController(),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   CustomFormField(
-                    headingText: "Email",
-                    hintText: "Email",
+                    headingText: "Biographie",
+                    hintText: "Biographie",
                     obsecureText: false,
                     suffixIcon: const SizedBox(),
-                    maxLines: 1,
-                    textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.emailAddress,
-                    controller: _emailController,
+                    maxLines: 5,
+                    textInputAction: TextInputAction.none,
+                    textInputType: TextInputType.multiline,
+                    controller: TextEditingController(),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   CustomFormField(
-                    maxLines: 1,
-                    textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.text,
-                    controller: _passwordController,
-                    headingText: "Password",
-                    hintText: "At least 8 Character",
-                    obsecureText: true,
-                    suffixIcon: IconButton(
-                        icon: const Icon(Icons.visibility), onPressed: () {}),
+                    headingText: "Révue de presse",
+                    hintText: "Révue de presse",
+                    obsecureText: false,
+                    suffixIcon: const SizedBox(),
+                    maxLines: 5,
+                    textInputAction: TextInputAction.none,
+                    textInputType: TextInputType.multiline,
+                    controller: TextEditingController(),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   AuthButton(
                     onTap: () {},
-                    text: 'Inscription',
+                    text: 'Suivant',
                   ),
                   CustomRichText(
                     discription: 'Already Have an account? ',
-                    text: 'Se connecter',
+                    text: 'Log In here',
                     onTap: () {
                       Navigator.pushReplacement(
                           context,
